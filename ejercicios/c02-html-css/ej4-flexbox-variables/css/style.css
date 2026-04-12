@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+        --color-fondo: hsl(238, 60%, 7%);
+        --color-secundario: hsl(238, 100%, 65%);
+        --color-terciario: hsl(244, 100%, 80%);
+}
+
+body {
+    min-height: 100vh;/*Hacer que la pantalla sea el 100% de la altura*/
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+
+    /*Texto default*/
+    color: white;
+    font-family : "Computer Modern", Inter, sans-serif;
+
+    /*Fondo*/
+    background-color: var(--color-fondo);
+
+}
+
+header {
+    /*Cuerpo del header*/
+    background-color: rgba(255, 255, 255, 5%);
+    padding: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-bottom: 2px solid var(--color-secundario);
+
+    /*Box y flex*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /*Links*/
+    nav a {
+        color: var(--color-terciario);
+        font-family : "Jetbrains Mono";
+        line-height: 1.6;
+        text-decoration: none;
+    }
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+
+    /*Logo*/
+    .logo {
+        background: rgba(255, 255, 255, 5%);
+        padding: 5px 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+    }
+    
+}
+
+main {
+    /*Cuerpo del main*/
+    margin: 60px;
+    flex: 1;
+
+    /*Headers*/
+    h1, h2, h3 {
+        color: var(--color-secundario);
+    }
+
+    /*Listas*/
+    ul {
+        line-height: 2.0;
+    }
+
+    /*Estilos*/
+    strong {
+        color: hsl(255, 100%, 60%)
+    }
+}
+
+/*Galería de proyectos*/
+.project-grid {
+    display: flex;
+    gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.project-card {
+    border: 1px solid var(--color-secundario);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 5%);
+    box-shadow: 3px 3px 8px rgba(255, 255, 255, 35%);
+}
+.project-card a {
+    color: var(--color-terciario);
+}
+
+/*Showcase de proyectos*/
+.project {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--color-secundario);
+    background-color: rgba(255, 255, 255, 5%);
+}
+
+footer {
+    /*Cuerpo del footer*/
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+
+    background-color: hsl(238, 50%, 15%);
+    padding: 15px;
+    border-top: 2px solid var(--color-secundario);
+
+    /*Texto*/
+    text-align: right;
+
+    /*Anchors*/
+    a {
+        color: var(--color-terciario);
+        font-family : "Jetbrains Mono";
+        line-height: 1.6;
+    }
+    
+}
