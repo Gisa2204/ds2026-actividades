@@ -1,0 +1,85 @@
+body {
+    /*Reset de las opciones default*/
+    margin: 0;
+    padding: 0;
+
+    /*Texto default*/
+    color: white;
+    font-family : "Computer Modern", Inter, sans-serif;
+
+    /*Fondo*/
+    background-color: hsl(238, 60%, 7%);
+
+}
+
+header {
+    /*Cuerpo del header*/
+    background-color: rgba(255, 255, 255, 5%);
+    padding: 20px;
+    border-bottom: 2px solid hsl(238, 100%, 65%);
+
+    /*Anchors y logo*/
+    a {
+        color: hsl(244, 100%, 80%);
+        font-family : "Jetbrains Mono";
+        line-height: 1.6;
+    }
+    .logo {
+        background: rgba(255, 255, 255, 5%);
+        padding: 5px 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+    }
+    
+}
+
+main {
+    /*Cuerpo del main*/
+    margin: 60px;
+    min-height: 53vh;
+
+    /*Headers*/
+    h1, h2, h3 {
+        color: hsl(238, 100%, 65%);
+    }
+
+    /*Listas*/
+    ul {
+        line-height: 2.0;
+    }
+
+    /*Estilos*/
+    strong {
+        color: hsl(255, 100%, 60%)
+    }
+}
+
+/*Galería de proyectos*/
+.project-grid {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.project-card {
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
+footer {
+    /*Cuerpo del footer*/
+    background-color: hsl(238, 50%, 15%);
+    padding: 15px;
+    border-top: 2px solid hsl(238, 100%, 65%);
+
+    /*Texto*/
+    text-align: right;
+
+    /*Anchors*/
+    a {
+        color: hsl(244, 100%, 80%);
+        font-family : "Jetbrains Mono";
+        line-height: 1.6;
+    }
+    
+}
