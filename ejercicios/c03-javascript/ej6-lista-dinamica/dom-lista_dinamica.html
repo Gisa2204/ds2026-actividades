@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Página JS</title>
+    <link rel='stylesheet' href='css/style.css'>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./">VARIABLES Y OPERACIONES</a></li>
+                <li><a href="condicionales.html">CONDICIONALES</a></li>
+                <li><a href="funciones_logica.html">FUNCIONES CON LÓGICA</a></li>
+                <li><a href="arrays.html">ARRAYS</a></li>
+                <li><a href="dom-io.html">DOM: I/O</a></li>
+                <li><a href="dom-lista_dinamica.html">DOM: LISTA DINÁMICA</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="container">
+            <h1>ITEMS COMPRADOS:</h1>
+            <hr>
+            <ul id="compra-list" class="container-compra">
+                <!--En esta zona se agregan los items-->
+            </ul>
+        </section>
+    </main>
+    <footer class="shopping-bar">
+        <h2>LISTA DE COMPRAS</h2>
+        <form id="compra-form">
+                <input id="compra-input" type="text" placeholder="Ingrese un artículo">
+                <button type="submit">Agregar</button>
+        </form>
+        <div class="area-resultado">
+            <pre>Items comprados: <span id="contador-items">0</span> </pre>
+        </div>
+    </footer>
+    <script src="js/dom-lista_dinamica.js"></script>
+</body>
+</html>
