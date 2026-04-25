@@ -1,0 +1,23 @@
+const arbolFormulario = document.querySelector('#arbol-form') as HTMLFormElement;
+const arbolInput = document.querySelector('#arbol-input') as HTMLInputElement;
+const resultadoFinal = document.querySelector('#arbol-result') as HTMLElement;
+
+arbolFormulario.addEventListener
+('submit', (arbolEvent) => 
+    {
+        arbolEvent.preventDefault(); //Evitar un refresh de la pagina
+        let numeroArbol = arbolInput.valueAsNumber; //Recuperar el valor del <input>, pero como number
+
+        if (numeroArbol < 0) {
+            resultadoFinal.textContent = "Ingrese un número positivo!";
+        } else if (numeroArbol === 0) {
+            resultadoFinal.textContent = ""
+        } else {
+            resultadoFinal.textContent = '';
+            for (let i = 1; i <= numeroArbol; i++) {
+                resultadoFinal.textContent += `${'*'.repeat(i)} \n`;
+            }
+        }
+        console.log(`Tu arbol tiene una altura de ${arbolInput.value}!`);
+    }
+);
