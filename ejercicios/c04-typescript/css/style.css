@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /*Colors*/
+    --color-primario: hsl(238, 60%, 15%);
+    --color-primario-light: hsl(238, 60%, 20%);
+    --color-secundario: hsl(238, 100%, 65%);
+    --color-secundario-black: hsl(238, 100%, 55%);
+    --color-secundario-light: hsl(238, 100%, 75%);
+
+    /*Fonts*/
+    --font-interface: "Computer Modern", Inter, sans-serif;
+    --font-main: "Jetbrains Mono", Inter, sans-serif;
+    --font-code: "Courier New", Courier, monospace;
+}
+
+body {
+    min-height: 100vh;/*Hacer que la pantalla sea el 100% de la altura*/
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-primario);
+}
+
+header {
+    background-color: var(--color-primario-light);
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-bottom: 2px solid var(--color-secundario);
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        color: var(--color-secundario-light);
+        font-family : var(--font-main);
+        line-height: 1.6;
+        text-decoration: none;
+    }
+    ul {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+    }
+    li {
+        font-family: var(--font-interface);
+        font-size: 20px;
+        font-weight: bold;
+        background-color: rgba(255, 255, 255, 8%);
+        padding: 8px;
+        border: 2px solid var(--color-secundario);
+        border-radius: 8px;
+    }
+
+}
+
+main {
+    /*Cuerpo del main*/
+    margin: 60px;
+    flex: 1;
+
+    /*Headers*/
+    h1, h2, h3 {
+        color: var(--color-secundario);
+    }
+
+    /*Listas*/
+    ul {
+        line-height: 2.0;
+    }
+
+    /*Estilos*/
+    strong {
+        color: hsl(255, 100%, 60%)
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-secundario);
+    border-radius: 10px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 5%);
+    box-shadow: 1px 1px 8px rgba(255, 255, 255, 35%);
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+form input {
+    border: 1px solid var(--color-secundario);
+    border-radius: 10px;
+    padding: 15px 20px;
+    background-color: rgba(255, 255, 255, 10%);
+    color: white;
+    font-size: 20px;
+    font-family: var(--font-interface);
+    font-weight: bold;
+}
+form input::placeholder {
+    color: rgba(255, 255, 255, 20%);
+    font-style: italic;
+    font-size: 20px;
+}
+
+form button {
+    border: 3px solid var(--color-secundario);
+    border-radius: 15px;
+    padding: 15px 20px;
+    background-color: var(--color-secundario-light);
+    color: white;
+    font-size: 20px;
+    font-family: var(--font-interface);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: var(--color-secundario);
+}
+
+button:active {
+    transform: scale(0.90);
+}
+
+pre {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid var(--color-secundario-light);
+    font-family: var(--font-code);
+    font-size: 20px;
+    color: #333;
+}
