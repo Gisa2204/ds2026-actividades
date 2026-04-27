@@ -1,0 +1,328 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /*Colors*/
+    --color-primario: hsl(238, 60%, 15%);
+    --color-primario-light-medium: hsl(238, 60%, 20%);
+    --color-primario-light: hsl(238, 60%, 30%);
+    --color-secundario: hsl(238, 100%, 65%);
+    --color-secundario-black: hsl(238, 100%, 55%);
+    --color-secundario-light: hsl(238, 100%, 75%);
+
+    /*Interface colors*/
+    --color-interface: rgba(255, 255, 255, 85%);
+    --color-bold: hsl(255, 100%, 60%);
+
+    /*Fonts*/
+    --font-interface: "Computer Modern", Inter, sans-serif;
+    --font-main: "Jetbrains Mono", Inter, sans-serif;
+    --font-code: "Courier New", Courier, monospace;
+}
+
+main strong {
+    color: var(--color-bold);
+}
+
+body {
+    min-height: 100vh;/*Hacer que la pantalla sea el 100% de la altura*/
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-primario);
+}
+
+header {
+    background-color: var(--color-primario-light);
+    padding: 10px;
+    border-bottom: 2px solid var(--color-secundario);
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+header nav h1 {
+    padding-right: 20px;
+    color: var(--color-secundario);
+    font-family: var(--font-main);
+    font-weight: bold;
+    font-size: 35px;
+    text-shadow: rgba(0, 0, 0, 100%) 3px 3px 10px;
+}
+
+a {
+    color: var(--color-secundario-light);
+    font-family : var(--font-main);
+    line-height: 1.6;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+li {
+    font-family: var(--font-interface);
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 8%);
+    padding: 8px;
+    border: 2px solid var(--color-secundario);
+    border-radius: 8px;
+}
+
+form button {
+    border: 3px solid var(--color-secundario);
+    border-radius: 15px;
+    padding: 15px 20px;
+    background-color: var(--color-secundario-light);
+    color: white;
+    font-size: 20px;
+    font-family: var(--font-interface);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+form input {
+    border: 1px solid var(--color-secundario);
+    border-radius: 10px;
+    padding: 15px 20px;
+    background-color: rgba(255, 255, 255, 10%);
+    color: white;
+    font-size: 20px;
+    font-family: var(--font-interface);
+    font-weight: bold;
+}
+form input::placeholder {
+    color: rgba(255, 255, 255, 20%);
+    font-style: italic;
+    font-size: 20px;
+}
+
+.checkBox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: var(--font-interface);
+    font-size: 20px;
+    user-select: none;
+    gap: 20px;
+}
+
+.checkBox h2 {
+        color: var(--color-bold);
+        text-shadow: 3px 3px 3px black;
+    }
+
+input[type="checkbox"] {
+    display: flex;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+}
+
+form button:hover {
+    background-color: var(--color-secundario);
+}
+
+button:active {
+    transform: scale(0.90);
+}
+
+header nav input {
+    border: 3px solid var(--color-primario);
+    border-radius: 15px;
+    padding: 5px 10px;
+    width: 60%;
+    background-color: rgba(255, 255, 255, 100%);
+    color: rgba(0, 0, 0, 80%);
+    font-size: 20px;
+    font-family: var(--font-interface);
+    font-weight: bold;
+}
+
+header nav input::placeholder {
+    color: rgba(0, 0, 0, 40%);
+    font-style: italic;
+    font-size: 20px;
+}
+
+header nav button {
+    padding: 10px;
+    border-radius: 10px;
+    border: 3px solid var(--color-primario);
+    background-color: var(--color-secundario);
+    color: var(--color-interface);
+    font-family: var(--font-interface);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+button:active {
+    transform: scale(0.90);
+}
+
+#filtrar-button {
+    background-color: rgba(255, 255, 255, 30%);
+    color: white;
+}
+
+main {
+    margin: 60px;
+    flex: 1;
+}
+
+main h1, main h2, main h3 {
+    padding: 15px;
+    padding-bottom: 10px;
+    color: var(--color-secundario);
+}
+
+main ul {
+    line-height: 2.0;
+}
+
+#compra-list {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-interface);
+    text-shadow: 3px 3px 1px black;
+    font-size: 25px;
+    font-family: var(--font-main);
+    list-style-type: none;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgba(255, 255, 255, 5%);
+}
+
+#compra-list li {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+main p {
+    display: flex;
+    color: var(--color-interface);
+    text-shadow: 3px 3px 1px black;
+    font-weight: bold;
+    font-size: 30px;
+    justify-content: center;
+}
+
+.container {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-secundario);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 5%);
+    box-shadow: 1px 1px 8px rgba(255, 255, 255, 35%);
+}
+
+.container pre {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid var(--color-secundario-light);
+    font-family: var(--font-code);
+    font-size: 20px;
+    color: #333;
+}
+
+.catalogo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.libros-bar summary {
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-bottom: 10px;
+    color: var(--color-secundario-light);
+    font-family: var(--font-main);
+    font-weight: bold;
+    font-size: 35px;
+    text-shadow: rgba(0, 0, 0, 100%) 3px 3px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none;
+}
+
+.libros-bar summary::before {
+    content: "▶ ";
+    display: inline-block;
+    transition: transform 0.2s;
+}
+
+details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.libros-bar hr {
+    margin: 8px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 20px;
+}
+
+.libros-bar button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    border: 3px solid var(--color-primario);
+    background-color: var(--color-secundario);
+    color: var(--color-interface);
+    font-family: var(--font-interface);
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.eliminar-btn {
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 2px solid var(--color-primario);
+    border-radius: 20px;
+    margin-left: 20px;
+    background-color: var(--color-bold);
+    box-shadow: black 1px 1px 3px;
+    color: var(--color-interface);
+    font-family: var(--font-interface);
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#libros-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-left: 25px;
+    margin: 0;
+}
+
+#agregar-button {
+    flex-basis: 20%;
+    margin: 10px auto;
+}
