@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /*Colors*/
+    --color-primario: hsl(238, 60%, 15%);
+    --color-primario-light-medium: hsl(238, 60%, 20%);
+    --color-primario-light: hsl(238, 60%, 30%);
+    --color-secundario: hsl(238, 100%, 65%);
+    --color-secundario-black: hsl(238, 100%, 55%);
+    --color-secundario-light: hsl(238, 100%, 75%);
+
+    /*Interface colors*/
+    --color-interface: rgba(255, 255, 255, 85%);
+    --color-bold: hsl(255, 100%, 60%);
+
+    /*Fonts*/
+    --font-interface: "Computer Modern", Inter, sans-serif;
+    --font-main: "Jetbrains Mono", Inter, sans-serif;
+    --font-code: "Courier New", Courier, monospace;
+}
+
+main {
+    margin: 60px;
+    flex: 1;
+}
+
+main strong {
+    color: var(--color-bold);
+}
+
+header h1 {
+    display: flex;
+    justify-content: center;
+    color: var(--color-secundario);
+    font-family: var(--font-main);
+    font-weight: bold;
+    font-size: 35px;
+    text-shadow: rgba(0, 0, 0, 100%) 3px 3px 10px;
+}
+
+body {
+    min-height: 100vh;/*Hacer que la pantalla sea el 100% de la altura*/
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-primario);
+}
+
+header {
+    background-color: var(--color-primario-light);
+    padding: 10px;
+    border-bottom: 2px solid var(--color-secundario);
+}
+
+main ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+    line-height: 1.5;
+}
+
+main li {
+    font-family: var(--font-interface);
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 8%);
+    padding: 8px;
+    padding-left: 20px;
+    border: 2px solid var(--color-secundario);
+    border-radius: 8px;
+    color: var(--color-interface);
+}
+
+#cargando-p {
+    display: flex;
+    justify-content: center;
+    color: var(--color-secundario-light);
+    font-family: var(--font-interface);
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 3px 3px 2px black;
+    padding-bottom: 20px;
+}
+
+#error-p {
+    display: flex;
+    justify-content: center;
+    color: red;
+    font-family: var(--font-interface);
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 3px 3px 2px black;
+    padding-bottom: 20px;
+}
