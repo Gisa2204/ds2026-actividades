@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>async-await-fetch</title>
+    <link rel='stylesheet' href='./css/style.css'>
+</head>
+<body>
+
+    <header>
+        <h1>Lista HTML</h1>
+    </header>
+
+    <main>
+        <p id="cargando-p"></p>
+        <form id="librosBuscador-form">
+            <input id="buscar-input" type="search" placeholder="Ingrese un libro">
+            <button id="buscar-button">BUSCAR</button>
+            <p id="error-p"></p>
+        </form>
+        <div>
+            <ul id="resultados-ul">
+                <!--Los usuarios se muestran aca-->
+            </ul>
+        </div>
+    </main>
+
+    <script type="module" src="./js/app.js"></script>
+
+</body>
+</html>
