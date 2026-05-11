@@ -1,0 +1,51 @@
+:root {
+    /*Colors*/
+    --color-primario: hsl(238, 60%, 15%);
+    --color-primario-light-medium: hsl(238, 60%, 20%);
+    --color-primario-light: hsl(238, 60%, 30%);
+    --color-secundario: hsl(238, 100%, 65%);
+    --color-secundario-black: hsl(238, 100%, 55%);
+    --color-secundario-light: hsl(238, 100%, 75%);
+
+    /*Interface colors*/
+    --color-interface: rgba(255, 255, 255, 85%);
+    --color-bold: hsl(255, 100%, 60%);
+
+    /*Fonts*/
+    --font-interface: "Computer Modern", Inter, sans-serif;
+    --font-main: "Jetbrains Mono", Inter, sans-serif;
+    --font-code: "Courier New", Courier, monospace;
+}
+
+main strong {
+    color: var(--color-bold);
+}
+
+header h1 {
+    display: flex;
+    justify-content: center;
+    color: var(--color-secundario);
+    font-family: var(--font-main);
+    font-weight: bold;
+    text-shadow: rgba(0, 0, 0, 100%) 3px 3px 10px;
+}
+
+body {
+    background-color: var(--color-primario);
+}
+
+header {
+    background-color: var(--color-primario-light);
+    border-bottom: 2px solid var(--color-secundario);
+}
+
+/*Colores para el logo*/
+.logo-svg {
+  fill: var(--color-secundario);
+  transition: fill 0.3s ease;
+  filter: drop-shadow(2px 4px 6px rgba(255, 255, 255, 0.3));
+}
+
+.navbar-brand:hover .logo-svg {
+  fill: white;
+}
