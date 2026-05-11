@@ -21,7 +21,7 @@ main strong {
     color: var(--color-bold);
 }
 
-header h1 {
+h1 {
     display: flex;
     justify-content: center;
     color: var(--color-secundario);
@@ -46,6 +46,11 @@ header {
   filter: drop-shadow(2px 4px 6px rgba(255, 255, 255, 0.3));
 }
 
-.navbar-brand:hover .logo-svg {
-  fill: white;
+/*Sección HERO con imagen*/
+.hero-bg-img {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/hero-background.jpg');
+    background-size: cover;
+    background-position: center center;
+    min-height: 500px;
+    border-radius: 15px; 
 }
