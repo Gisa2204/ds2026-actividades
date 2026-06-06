@@ -1,9 +1,12 @@
+import LayoutLibreria from './components/Layout/LayoutLibreria';
 import Home from './pages/Home';
 
 function App() {
   return (
     <>
-      <Home />
+      <LayoutLibreria>
+        <Home />
+      </LayoutLibreria>
     </>
   );
 }

@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'; {/*Importado del bootstrap*/}
 import '../css/styles.css'; {/*Importado de mi CSS custom*/}
 
-import HeaderLibreria from '../components/HeaderLibreria';
 import Hero from '../components/Hero';
 import CardLibro from '../components/CardLibro';
 import Row from 'react-bootstrap/Row';
@@ -9,14 +8,6 @@ import Row from 'react-bootstrap/Row';
 function Home() {
     return (
         <>
-            <header>
-
-                {/* Header con el logo de la pagina y la navbar */}
-                <HeaderLibreria />
-
-            </header>
-
-            <main>
 
                 {/* Seccion Hero*/}
                 <Hero />
@@ -34,7 +25,6 @@ function Home() {
                     </Row>
                 </section>
 
-            </main>
         </>
     )
 }
