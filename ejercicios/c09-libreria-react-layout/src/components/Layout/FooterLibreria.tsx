@@ -1,5 +1,6 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import '../../css/Footer.css';
+import { Link } from 'react-router-dom';
 
 function FooterLibreria() {
     return (
@@ -18,9 +19,9 @@ function FooterLibreria() {
                     <Col md={3}>
                         <h6 className="footer-heading">Navegación</h6>
                         <ul className="list-unstyled footer-links">
-                            <li><a href="#inicio">Inicio</a></li>
-                            <li><a href="#catalogo">Catálogo</a></li>
-                            <li><a href="#contacto">Contacto</a></li>
+                            <li><Link to="/">Inicio</Link></li>
+                            <li><Link to="/catalogo">Catálogo</Link></li>
+                            <li><Link to="/">Contacto</Link></li>
                         </ul>
                     </Col>
 

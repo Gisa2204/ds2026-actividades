@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import '../../css/Header.css';
+import { Link } from 'react-router-dom';
 
 function HeaderLibreria() {
   return (
@@ -10,22 +11,31 @@ function HeaderLibreria() {
         <Container fluid className="px-4">
 
           {/* Logo */}
-          <Navbar.Brand href="#" className="d-flex align-items-center">
-            <img
-              src="logo.svg"
-              width="60"
-              height="60"
-              className="logo-svg"
-              alt="Logo"
-            />
-            <span className="text-white fw-bold fs-2 px-3 custom-logo">Librería Universe</span>
-          </Navbar.Brand>
+          <Link to='/'>
+            <Navbar.Brand className="d-flex align-items-center">
+              <img
+                src="logo.svg"
+                width="60"
+                height="60"
+                className="logo-svg"
+                alt="Logo"
+              />
+            </Navbar.Brand>
+          </Link>
+          <span className="text-white fw-bold fs-2 px-3 custom-logo">Librería Universe</span>
+
 
           {/* Tabs INICIO  */}
           <Nav className="ms-auto custom-nav-links fs-4">
-            <Nav.Link className="px-3">INICIO</Nav.Link>
-            <Nav.Link className="px-3">CATALOGO</Nav.Link>
-            <Nav.Link className="px-3">CONTACTO</Nav.Link>
+            <Nav.Link className="px-3">
+              <Link to='/'>INICIO</Link>
+            </Nav.Link>
+            <Nav.Link className="px-3">
+              <Link to='/catalogo'>CATALOGO</Link>
+            </Nav.Link>
+            <Nav.Link className="px-3">
+              <Link to='/'>CONTACTO</Link>
+            </Nav.Link>
           </Nav>
 
         </Container>

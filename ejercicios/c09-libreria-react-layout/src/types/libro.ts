@@ -2,5 +2,6 @@ export interface cardLibroProps {
   titulo: string;
   autor: string;
   precio: number,
-  imgSrc: string;
-}
+  imgSrc: string,
+  id: number
+};
