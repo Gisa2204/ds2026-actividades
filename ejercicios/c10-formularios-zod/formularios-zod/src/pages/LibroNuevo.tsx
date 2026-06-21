@@ -1,8 +1,10 @@
-import { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+
 import type { cardLibroProps } from '../types/libro';
-import { libroSchema } from '../schemas/libroSchema'; // Ajusta la ruta correcta
+import { libroSchema, type LibroValidado } from '../schemas/libroSchema';
 
 interface LibroNuevoProps {
   onAgregarLibro: (libro: cardLibroProps) => void;
@@ -11,43 +13,21 @@ interface LibroNuevoProps {
 function LibroNuevo({ onAgregarLibro }: LibroNuevoProps) {
   const navigate = useNavigate();
 
-  const [titulo, setTitulo] = useState('');
-  const [autor, setAutor] = useState('');
-  const [precio, setPrecio] = useState('');
-  const [imgSrc, setImgSrc] = useState('');
+  const { 
+    register, 
+    handleSubmit, 
+    formState: { errors } 
+  } = useForm<LibroValidado>({
+    resolver: zodResolver(libroSchema)
+  });
 
-  const [errores, setErrores] = useState<Record<string, string>>({});
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const form = {
-      titulo,
-      autor,
-      precio: Number(precio),
-      imgSrc
-    };
-
-    const resultado = libroSchema.safeParse(form);
-
-    if (!resultado.success) {
-      const nuevosErrores: Record<string, string> = {};
-      
-      resultado.error.issues.forEach((issue) => {
-        const campo = issue.path[0] as string;
-        nuevosErrores[campo] = issue.message;
-      });
-
-      setErrores(nuevosErrores);
-      return;
-    }
-
+  const guardarLibro = (data: LibroValidado) => {
     const nuevoLibro: cardLibroProps = {
       id: Date.now(),
-      titulo: resultado.data.titulo,
-      autor: resultado.data.autor,
-      precio: resultado.data.precio,
-      imgSrc: resultado.data.imgSrc || 'logo.svg'
+      titulo: data.titulo,
+      autor: data.autor,
+      precio: data.precio,
+      imgSrc: data.imgSrc || 'logo.svg'
     };
 
     onAgregarLibro(nuevoLibro);
@@ -58,19 +38,18 @@ function LibroNuevo({ onAgregarLibro }: LibroNuevoProps) {
     <Container className="py-5 mt-3 mb-5" style={{ maxWidth: '600px' }}>
       <h2 className="text-center mb-4">Agregar un nuevo libro al catálogo</h2>
       
-      <Form onSubmit={handleSubmit} className="bg-light p-4 rounded shadow-sm" noValidate>
+      <Form onSubmit={handleSubmit(guardarLibro)} className="bg-light p-4 rounded shadow-sm" noValidate>
         
         <Form.Group className="mb-3" controlId="formTitulo">
           <Form.Label className="fw-bold">Título del libro</Form.Label>
           <Form.Control 
             type="text" 
             placeholder="Ingrese título" 
-            value={titulo}
-            onChange={(e) => setTitulo(e.target.value)}
-            isInvalid={!!errores.titulo} 
+            {...register('titulo')}
+            isInvalid={!!errors.titulo} 
           />
           <Form.Control.Feedback type="invalid">
-            {errores.titulo}
+            {errors.titulo?.message}
           </Form.Control.Feedback>
         </Form.Group>
 
@@ -79,12 +58,11 @@ function LibroNuevo({ onAgregarLibro }: LibroNuevoProps) {
           <Form.Control 
             type="text" 
             placeholder="Ingrese autor" 
-            value={autor}
-            onChange={(e) => setAutor(e.target.value)}
-            isInvalid={!!errores.autor}
+            {...register('autor')}
+            isInvalid={!!errors.autor}
           />
           <Form.Control.Feedback type="invalid">
-            {errores.autor}
+            {errors.autor?.message}
           </Form.Control.Feedback>
         </Form.Group>
 
@@ -93,12 +71,11 @@ function LibroNuevo({ onAgregarLibro }: LibroNuevoProps) {
           <Form.Control 
             type="number" 
             placeholder="Ingrese un precio"
-            value={precio}
-            onChange={(e) => setPrecio(e.target.value)}
-            isInvalid={!!errores.precio}
+            {...register('precio', { valueAsNumber: true })}
+            isInvalid={!!errors.precio}
           />
           <Form.Control.Feedback type="invalid">
-            {errores.precio}
+            {errors.precio?.message}
           </Form.Control.Feedback>
         </Form.Group>
 
@@ -107,12 +84,11 @@ function LibroNuevo({ onAgregarLibro }: LibroNuevoProps) {
           <Form.Control 
             type="text" 
             placeholder="Ingrese una url (debe terminar en jpg)" 
-            value={imgSrc}
-            onChange={(e) => setImgSrc(e.target.value)}
-            isInvalid={!!errores.imgSrc}
+            {...register('imgSrc')}
+            isInvalid={!!errors.imgSrc}
           />
           <Form.Control.Feedback type="invalid">
-            {errores.imgSrc}
+            {errors.imgSrc?.message}
           </Form.Control.Feedback>
         </Form.Group>
 
