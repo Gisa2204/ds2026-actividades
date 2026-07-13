@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "titulo": "Can't Hurt me",
+    "autor": "David Doggins",
+    "precio": 20,
+    "imgSrc": "Cant_hurt_me.jpg"
+  },
+  {
+    "id": 2,
+    "titulo": "Never Finished",
+    "autor": "David Doggins",
+    "precio": 20,
+    "imgSrc": "Never_finished.jpg"
+  },
+  {
+    "id": 3,
+    "titulo": "Infinite Powers",
+    "autor": "Steven Strogatz",
+    "precio": 15,
+    "imgSrc": "Infinite_powers.jpg"
+  },
+  {
+    "id": 4,
+    "titulo": "Mistborn",
+    "autor": "Brandon Sanderson",
+    "precio": 30,
+    "imgSrc": "Mistborn.jpg"
+  },
+  {
+    "id": 5,
+    "titulo": "Living with a seal",
+    "autor": "Jesse Itzler",
+    "precio": 10,
+    "imgSrc": "Living_with_a_seal.jpg"
+  },
+  {
+    "id": 6,
+    "titulo": "En el limbo",
+    "autor": "Estanislao Bachrach",
+    "precio": 5,
+    "imgSrc": "En_el_limbo.jpg"
+  }
+]
