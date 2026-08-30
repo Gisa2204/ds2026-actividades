@@ -1,0 +1,91 @@
+@baseUrl = http://localhost:3000
+
+### Hello
+GET {{baseUrl}}/
+
+### Listar libros
+GET {{baseUrl}}/api/libros
+
+### Listar autores
+GET {{baseUrl}}/api/autores
+
+### Libros disponibles
+GET {{baseUrl}}/api/libros?disponible=true
+
+### Crear un libro
+POST {{baseUrl}}/api/libros
+Content-Type: application/json
+
+{
+  "titulo": "Atomic Habits",
+  "autor": "James Clear",
+  "precio": 10,
+  "imgSrc": "https://m.media-amazon.com/images/I/81kg51XRc1L._SL1500_.jpg",
+  "disponible": true
+}
+
+### Crear un autor
+POST {{baseUrl}}/api/autores
+Content-Type: application/json
+
+{
+  "nombreApellido": "James Clear",
+  "nacionalidad": "Estados Unidos"
+}
+
+### Actualizar un libro
+PUT {{baseUrl}}/api/libros/1
+Content-Type: application/json
+
+{
+    "titulo": "Can't Hurt me",
+    "autor": "David Doggins",
+    "precio": 35,
+    "imgSrc": "Cant_hurt_me.jpg",
+    "disponible": false
+}
+
+### Actualizar un autor
+PUT {{baseUrl}}/api/autores/1
+Content-Type: application/json
+
+{
+  "nombre": "David Goggins",
+  "nacionalidad": "Americano"
+}
+
+### Borrar un libro
+DELETE {{baseUrl}}/api/libros/3
+
+### Borrar un autor
+DELETE {{baseUrl}}/api/autores/3
+
+
+
+### ERRORES Y VALIDACIONES
+
+### 400 - sin imgSrc
+POST {{baseUrl}}/api/libros
+Content-Type: application/json
+
+{ "titulo": "El Principito", "precio": 5, "autorId": 1 }
+
+### 400 - id inválido
+GET {{baseUrl}}/api/libros/abc
+
+### 400 - el autor no existe
+POST {{baseUrl}}/api/libros
+Content-Type: application/json
+
+{ "titulo": "El principito 2", "precio": 5, "imgSrc": "https://…", "autorId": 9999 }
+
+### 409 - autor duplicado
+POST {{baseUrl}}/api/autores
+
+{ "nombreApellido": "David Goggins", "nacionalidad": "Estados Unidos" }
+
+### 409 - borrar un autor con libros (onDelete: Restrict)
+DELETE {{baseUrl}}/api/autores/1
+
+### 404 - actualizar algo que no existe
+PUT {{baseUrl}}/api/libros/999
