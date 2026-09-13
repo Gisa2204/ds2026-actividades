@@ -1,0 +1,32 @@
+.floating-login-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); 
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.2);
+  z-index: 1050;
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.floating-login-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.8), inset 0 0 15px rgba(255, 255, 255, 0.4);
+  color: white;
+}
+
+.floating-login-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.floating-login-btn:hover svg {
+  transform: scale(1.1);
+}
