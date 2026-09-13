@@ -29,26 +29,13 @@ function App() {
     }
   }, [fetchedLibros]);
 
-  //Funcion para agregar libros
-  const [isProcessing, setIsProcessing] = useState(false);
-  const agregarLibro = async (nuevoLibro: cardLibroProps) => {
-    setIsProcessing(true);
-
-    //Simulamos un delay al agregar un libro
-    const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-    await sleep(1500);
-
-    setLibros(prevLibros => [nuevoLibro, ...prevLibros]);
-    setIsProcessing(false);
-  }
-
   return (
     <LayoutLibreria>
       <Routes>
-        <Route path='/' element={<Home libros={libros} loading={loading || isProcessing} error={error} />} />
-        <Route path='/catalogo' element={<Catalogo libros={libros} loading={loading || isProcessing} error={error} />} />
+        <Route path='/' element={<Home libros={libros} loading={loading} error={error} />} />
+        <Route path='/catalogo' element={<Catalogo libros={libros} loading={loading} error={error} />} />
         <Route path='/libro/:id' element={<LibroDetalle />} />
-        <Route path='/libro/nuevo' element={<LibroNuevo onAgregarLibro={agregarLibro} />} />
+        <Route path='/libro/nuevo' element={<LibroNuevo />} />
         <Route path='/contacto' element={<Contacto />} />
 
         <Route path='/login' element={<Login />} />
