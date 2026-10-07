@@ -10,13 +10,14 @@ function HeaderLibreria() {
 
   return (
     <header className="sticky-top">
+      {/* variant="dark" hace que el ícono hamburguesa sea blanco automáticamente */}
       <Navbar expand="lg" className="custom-navbar py-3" variant="dark">
-        <Container fluid className="px-4 position-relative">
+        <Container fluid className="px-4">
 
-          {/* Logo */}
+          {/* LOGO (Se alinea a la izquierda) */}
           <Navbar.Brand as={Link} to='/' className="d-flex align-items-center m-0">
             <img
-              src="/logo.svg" 
+              src="/logo.svg"
               width="60"
               height="60"
               className="logo-svg"
@@ -25,18 +26,19 @@ function HeaderLibreria() {
             <span className="text-white fw-bold fs-2 px-3 custom-logo">Librería Universe</span>
           </Navbar.Brand>
 
-          {tieneRol('ADMIN') && (
-            <div className="position-absolute top-50 start-50 translate-middle d-none d-xl-block">
-              <span className="text-white fs-4 fw-bold border border-white rounded-pill px-4 py-1 admin-badge">
-                MODO ADMINISTRACIÓN
-              </span>
-            </div>
-          )}
-
           <Navbar.Toggle aria-controls="navbar-collapse-menu" />
 
           <Navbar.Collapse id="navbar-collapse-menu">
-            <Nav className="ms-auto custom-nav-links fs-4 mt-3 mt-lg-0">
+            
+            {tieneRol('ADMIN') && (
+              <div className="mx-auto my-3 my-lg-0 text-center">
+                <span className="text-white fs-4 fw-bold border border-white rounded-pill px-4 py-1 admin-badge">
+                  MODO ADMINISTRACIÓN
+                </span>
+              </div>
+            )}
+
+            <Nav className="ms-auto custom-nav-links fs-4 text-center text-lg-start">
               <Nav.Link as={Link} to='/' className="px-3">
                 INICIO
               </Nav.Link>
@@ -52,8 +54,8 @@ function HeaderLibreria() {
                   NUEVO LIBRO
                 </Nav.Link>
               )}
-
             </Nav>
+
           </Navbar.Collapse>
 
         </Container>
