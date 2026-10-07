@@ -10,13 +10,13 @@ function HeaderLibreria() {
 
   return (
     <header className="sticky-top">
-      <Navbar expand="lg" className="custom-navbar py-3">
+      <Navbar expand="lg" className="custom-navbar py-3" variant="dark">
         <Container fluid className="px-4 position-relative">
 
           {/* Logo */}
           <Navbar.Brand as={Link} to='/' className="d-flex align-items-center m-0">
             <img
-              src="logo.svg"
+              src="/logo.svg" 
               width="60"
               height="60"
               className="logo-svg"
@@ -33,25 +33,28 @@ function HeaderLibreria() {
             </div>
           )}
 
-          {/* Tabs */}
-          <Nav className="ms-auto custom-nav-links fs-4">
-            <Nav.Link as={Link} to='/' className="px-3">
-              INICIO
-            </Nav.Link>
-            <Nav.Link as={Link} to='/catalogo' className="px-3">
-              CATALOGO
-            </Nav.Link>
-            <Nav.Link as={Link} to='/contacto' className="px-3">
-              CONTACTO
-            </Nav.Link>
+          <Navbar.Toggle aria-controls="navbar-collapse-menu" />
 
-            {tieneRol('ADMIN') && (
-              <Nav.Link as={Link} to='/libro/nuevo' className="px-3">
-                NUEVO LIBRO
+          <Navbar.Collapse id="navbar-collapse-menu">
+            <Nav className="ms-auto custom-nav-links fs-4 mt-3 mt-lg-0">
+              <Nav.Link as={Link} to='/' className="px-3">
+                INICIO
               </Nav.Link>
-            )}
+              <Nav.Link as={Link} to='/catalogo' className="px-3">
+                CATALOGO
+              </Nav.Link>
+              <Nav.Link as={Link} to='/contacto' className="px-3">
+                CONTACTO
+              </Nav.Link>
 
-          </Nav>
+              {tieneRol('ADMIN') && (
+                <Nav.Link as={Link} to='/libro/nuevo' className="px-3">
+                  NUEVO LIBRO
+                </Nav.Link>
+              )}
+
+            </Nav>
+          </Navbar.Collapse>
 
         </Container>
       </Navbar>
