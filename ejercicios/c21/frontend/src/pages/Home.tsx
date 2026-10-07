@@ -3,7 +3,7 @@ import '../css/styles.css'; {/*Importado de mi CSS custom*/}
 
 import Hero from '../components/Hero';
 
-import Catalogo from './Catalogo';
+import Catalogo from '../components/Catalogo';
 
 function Home() {
     return (

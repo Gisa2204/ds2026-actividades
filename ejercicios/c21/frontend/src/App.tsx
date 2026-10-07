@@ -3,7 +3,7 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 import LayoutLibreria from './layout/LayoutLibreria';
 
 import Home from './pages/Home';
-import Catalogo from './pages/Catalogo';
+import Catalogo from './components/Catalogo';
 import LibroDetalle from './pages/LibroDetalle';
 import LibroNuevo from './pages/LibroNuevo';
 import Contacto from './pages/Contacto';

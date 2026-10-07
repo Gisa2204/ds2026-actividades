@@ -1,18 +1,113 @@
-import { useParams } from "react-router-dom";
-
+import { useParams, useNavigate } from "react-router-dom";
+import { useLibro } from "../context/LibroContext";
+import { Container, Row, Col, Card, Badge, Button, Spinner } from "react-bootstrap";
 
 function LibroDetalle() {
     const { id } = useParams<{ id: string }>();
+    const libroId = Number(id);
+    const navigate = useNavigate();
+
+    const { getLibroById, loading, errorApi } = useLibro();
+    const libro = getLibroById(libroId);
+
+    if (!id || isNaN(libroId)) {
+        return <h2>ID de libro inválido</h2>;
+    }
+
+    if (loading) {
+        return (
+            <div className="text-center py-5">
+                <Spinner animation="border" role="status" variant="light">
+                    <span className="visually-hidden">Cargando libros...</span>
+                </Spinner>
+            </div>
+        );
+    }
+
+    if (errorApi) {
+        return (
+            <div className="text-center text-danger py-5">Error: {errorApi}</div>
+        );
+    }
+
+    if (!libro) {
+        return <h2>Libro no encontrado</h2>;
+    }
 
     return (
-        <>
-            <h1>Detalle de libro {id}</h1>
-            <h2>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit urna molestie neque tincidunt, ut eleifend est dignissim. Suspendisse arcu arcu, semper ac rhoncus at, fringilla venenatis nisl. Donec vitae nibh sed sapien convallis pharetra. Aenean maximus at diam ac sollicitudin. Ut eu mauris id lacus fringilla malesuada non quis neque. Sed sed augue nec ex sollicitudin commodo. Nunc volutpat scelerisque nulla, id rhoncus tortor volutpat id. Aenean et placerat eros. Nulla lobortis tellus massa, sit amet pretium metus ullamcorper et. Mauris facilisis lectus eget sem mollis finibus. Maecenas mi elit, interdum vel sollicitudin id, ultrices sit amet leo. Cras sit amet nisi sed est pellentesque bibendum. Ut mattis suscipit hendrerit. Nam congue, arcu sed mattis rutrum, sapien augue fermentum libero, nec efficitur risus massa non ipsum. Aliquam rhoncus justo sed purus sagittis, et iaculis purus venenatis. Mauris vel tellus quis sem vestibulum molestie nec pharetra nisl.
-                Sed dictum aliquam blandit. Praesent ac placerat orci, non aliquam velit. Pellentesque scelerisque metus sed mauris auctor, vel consectetur nisi ornare. Aliquam molestie non leo a porta. Fusce porta vel orci id porttitor. Aenean vehicula accumsan nibh in sagittis. Duis vitae mauris dapibus, vehicula purus vel, consequat libero. Quisque nisl tellus, pulvinar quis sodales vitae, venenatis eu purus. Aenean gravida ex arcu, in iaculis elit posuere vel.
-                Quisque finibus tellus sed nisl rhoncus pretium. Nunc maximus, arcu vel ultrices lacinia, turpis ante finibus augue, ac posuere mauris quam ut enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla feugiat neque, in finibus diam maximus nec. Suspendisse quis purus in orci scelerisque tristique. Donec mattis dui odio, nec pretium felis placerat tristique. Suspendisse id aliquet orci, eget finibus diam. Nullam euismod venenatis turpis quis iaculis. Sed sed ex in dolor mollis sagittis. Quisque congue luctus dolor non bibendum. Maecenas et tellus sit amet neque cursus pulvinar vitae sit amet est.
-            </h2>
-        </>
+        <Container className="py-5">
+
+            {/*Boton de retroceso*/}
+            <Button variant="outline-light" onClick={() => navigate(-1)} className="mb-4">
+                &larr; Volver
+            </Button>
+
+            {/*Tarjeta principal*/}
+            <Card className="shadow-lg border-0 rounded-5 overflow-hidden">
+                <Row className="g-0">
+
+                    {/*COLUMNA IZQUIERDA*/}
+                    <Col md={5} lg={4} className="bg-light d-flex align-items-center justify-content-center p-4">
+                        <Card.Img
+                            src={libro.imgSrc
+                                ? (libro.imgSrc.startsWith('http') ? libro.imgSrc : `/${libro.imgSrc}`)
+                                : '/logo.svg'
+                            }
+                            alt={`Portada de ${libro.titulo}`}
+                            className="img-fluid rounded shadow-lg"
+                            style={{ maxHeight: '500px', objectFit: 'contain' }}
+                        />
+                    </Col>
+
+                    {/*COLUMNA DERECHA*/}
+                    <Col md={7} lg={8}>
+                        <Card.Body className="p-4 p-lg-5 d-flex flex-column h-100">
+
+                            {/*Titulo y autor*/}
+                            <div className="mb-4">
+                                <h1 className="text-info fs-1 fw-bold text-shadow">{libro.titulo}</h1>
+                                <p className="text-info fs-4 fw-bold">
+                                    Por {libro.autor.nombreApellido} <span className="fs-5 fw-normal">({libro.autor.nacionalidad})</span>
+                                </p>
+                            </div>
+
+                            {/*Categorias*/}
+                            <div className="mb-4">
+                                <h6 className="fw-bold text-uppercase text-secondary mb-2">Categorías</h6>
+                                {libro.categorias && libro.categorias.length > 0 ? (
+                                    libro.categorias.map(cat => (
+                                        <Badge bg="primary" className="me-2 mb-2 fs-6 rounded-pill px-3 py-2" key={cat.id}>
+                                            {cat.nombre}
+                                        </Badge>
+                                    ))
+                                ) : (
+                                    <span className="text-muted fst-italic">Sin categorías</span>
+                                )}
+                            </div>
+
+                            {/*Disponibilidad*/}
+                            <div className="mb-5">
+                                <h6 className="fw-bold text-uppercase text-secondary mb-2">Disponibilidad</h6>
+                                {libro.disponible ? (
+                                    <Badge bg="success" className="fs-6 rounded-pill px-3 py-2">En stock</Badge>
+                                ) : (
+                                    <Badge bg="danger" className="fs-6 rounded-pill px-3 py-2">Agotado</Badge>
+                                )}
+                            </div>
+
+                            {/*Precio*/}
+                            <div className="mt-auto pt-4 border-top d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p className="fs-4 fw-bold">Precio</p>
+                                    <h1 className="text-success fw-bold mb-0">${libro.precio.toLocaleString()}</h1>
+                                </div>
+                            </div>
+
+                        </Card.Body>
+                    </Col>
+                </Row>
+            </Card>
+        </Container>
     );
 }
 

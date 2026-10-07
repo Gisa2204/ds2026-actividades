@@ -9,6 +9,7 @@ interface LibroContextType {
     loading: boolean;
     errorApi: string | null;
     update: () => void;
+    getLibroById: (id: number) => Libro | undefined;
 }
 
 const LibroContext = createContext<LibroContextType | null>(null);
@@ -35,13 +36,18 @@ export function LibroProvider({ children }: { children: ReactNode }){
 
     const update = getLibros;
 
+    const getLibroById = (id: number): Libro | undefined => {
+        return libros.find( (l) => l.id === id )
+    }
+
   return (
     <LibroContext.Provider 
         value={{ 
             libros,
             loading,
             errorApi,
-            update
+            update,
+            getLibroById
         }}>
 
       {children}

@@ -1,6 +1,6 @@
 import { Row, Spinner } from "react-bootstrap";
 
-import CardLibro from "../components/CardLibro";
+import CardLibro from "./CardLibro";
 
 import { useLibro } from "../context/LibroContext";
 
@@ -43,6 +43,7 @@ function Catalogo( {titulo}: CatalogoProps ) {
                                 precio={l.precio}
                                 imgSrc={l.imgSrc}
                                 id={l.id}
+                                key={l.id}
                             />
                         )
                 }
