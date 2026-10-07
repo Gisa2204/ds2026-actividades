@@ -26,11 +26,9 @@ function FooterLibreria() {
                     </Col>
 
                     <Col md={3}>
-                        <h6 className="footer-heading">Síguenos</h6>
+                        <h6 className="footer-heading">Sobre mí</h6>
                         <ul className="list-unstyled footer-links">
-                            <li><a href="#instagram">Instagram</a></li>
-                            <li><a href="#twitter">X (Twitter)</a></li>
-                            <li><a href="#facebook">Facebook</a></li>
+                            <li><Link to="/contacto">Contacto</Link></li>
                         </ul>
                     </Col>
                 </Row>
@@ -38,7 +36,7 @@ function FooterLibreria() {
                 <Row>
                     <Col className="text-center py-3 footer-bottom-border">
                         <p className="mb-0 footer-copyright">
-                            &copy; {new Date().getFullYear()} Librería Universe.
+                            &copy; {new Date().getFullYear()} Librería Universe | Desarrollo de Software
                         </p>
                     </Col>
                 </Row>
