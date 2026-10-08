@@ -8,6 +8,8 @@ import type { cardLibroProps } from '../types/libro';
 
 import { Link } from 'react-router-dom';
 
+import { formatearPrecio } from '../utils/formatearPrecio';
+
 function CardLibro({ titulo, autor, precio, imgSrc, id }: cardLibroProps) {
 
   const [itemCarrito, setItemCarrito] = useState(0);
@@ -22,7 +24,7 @@ function CardLibro({ titulo, autor, precio, imgSrc, id }: cardLibroProps) {
         <Card.Body>
           <Card.Title>{titulo}</Card.Title>
           {autor ? <Card.Subtitle className='py-1'>{autor.nombreApellido}</Card.Subtitle> : <></>}
-          <Card.Subtitle className='py-3 fs-5' style={{ color: "green" }}>${precio}</Card.Subtitle>
+          <Card.Subtitle className='py-3 fs-5' style={{ color: "green" }}>${formatearPrecio(precio)}</Card.Subtitle>
         </Card.Body>
         <Button
           variant="outline-primary" size='lg'
