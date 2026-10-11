@@ -3,7 +3,7 @@ import type { Rol, Usuario } from '../types/sesion';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
-import Header from './HeaderLibreria';
+import HeaderLibreria from './HeaderLibreria';
 import { screen } from '@testing-library/react';
 
 function renderHeader(usuario: Usuario | null) {
@@ -13,7 +13,7 @@ function renderHeader(usuario: Usuario | null) {
   return render(
     <MemoryRouter>
         <AuthContext.Provider value={auth}>
-          <Header />
+          <HeaderLibreria />
         </AuthContext.Provider>
     </MemoryRouter>,
   );
